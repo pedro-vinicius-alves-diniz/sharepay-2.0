@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div id="registro" class="view view-main">
+            <img class="logo-registrare" src="img/SharePay.svg" width="250" alt="Logo SharePay">
+            <a id="btn-have-acccount" class="button" href="./index.html">Ho già un account</a>
+            <div id="line"></div>
+
+            <div class="social-medias">
+                <a href=""><img src="img/icons8-gmail-48.png" alt="Gmail" width="35"></a>
+                <a href=""><img src="img/icons8-apple-50.png" alt="Apple" width="35"></a>
+                <a href=""><img src="img/icons8-facebook-48.png" alt="Facebook" width="35"></a>
+            </div>
+
+            <p>O</p>
+
+            <form class="login-form">
+                <input type="email" placeholder="Email" id="iemail">
+                <input type="password" placeholder="Password" id="ipassword">
+                <input type="text" placeholder="Nome" id="iname">
+                <input type="text" placeholder="Cognome" id="ilastname">
+                <div class="data-nascita">
+                    <label id="label-register" for="datanasc">Data di nascita</label>
+                    <input type="date" name="datanasc" id="idatanasc" placeholder="Data di nascita">
+                </div>
+                <div class="condizioni">
+                    <input type="checkbox" name="" id="icheck">
+                    <span>Accetto i <a href="">termini e condizioni d'uso</a> e la <a href="">politica di
+                            riservatezza</a>.</span>
+                </div>
+
+                <a id="btn-registro" class="btn">Registrare</a>
+            </form>
+        </div>
+    </div>
+
+    <script src="cordova.js"></script>
+    <script type="module" src="js/registrare.js"></script>
+</body>
+
+</html>
