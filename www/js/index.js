@@ -92,6 +92,8 @@ async function checkEmail() {
     console.log(emailExists)
 
     if (emailExists == 1) {
+        // TODO: ENCRIPTY THE PASSWORD INPUT BEFORE CHECK THE PASSWORD IN THE DATABASE
+
         checkPassword(utente)
         emailExists = 0
     } else {
