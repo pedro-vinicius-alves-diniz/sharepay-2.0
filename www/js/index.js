@@ -31,7 +31,6 @@ var utente = null;
 
 
 // EVENTS
-// TODO: DO EVENT INPUTS FOCUS
 
 // EVENT WHEN LOGIN BUTTON IS CLICKED
 btnAccedere.addEventListener("click", () => {
@@ -92,7 +91,7 @@ async function checkEmail() {
     console.log(emailExists)
 
     if (emailExists == 1) {
-        // TODO: ENCRIPTY THE PASSWORD INPUT BEFORE CHECK THE PASSWORD IN THE DATABASE
+        
 
         checkPassword(utente)
         emailExists = 0
@@ -104,7 +103,12 @@ async function checkEmail() {
 
 // FUNCTION CHECK IF THE PASSWORD IS CORRECT
 function checkPassword(doc) {
-    if (doc.data().password == passwordInput.value) {
+    // TODO: ENCRIPTY THE PASSWORD INPUT BEFORE CHECK THE PASSWORD IN THE DATABASE
+    const shaObj = new jsSHA("SHA-256", "TEXT");
+
+    shaObj.update(passwordInput.value);
+
+    if (doc.data().password == shaObj.getHash("HEX")) {
         window.location.href = 'home.html';
         alert("Login realizzato con successo!");
     } else {
