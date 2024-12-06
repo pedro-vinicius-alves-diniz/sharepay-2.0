@@ -26,8 +26,8 @@ const emailInput = document.getElementById('iemail');
 const passwordInput = document.getElementById('ipassword');
 const btnRegistrare = document.getElementById("btn-registrare");
 var emailExists = 0;
-var utente = null;
-
+var users = null;
+var utenteDoc = null;
 
 
 // EVENTS
@@ -57,21 +57,20 @@ function checkInputs() {
         emailInput.classList.add('warn-input');
         emailInput.classList.add('animation');
 
-        console.log('Compila l`email per accedere!');
-
         setTimeout(() => {
             emailInput.classList.remove('animation');
         }, 500)
+
     } if (passwordInput.value == '') { // IF PASSWORD INPUT IS EMPTY DO
         passwordInput.style.border = '2px solid red';
         passwordInput.style.outlineColor = 'red';
         passwordInput.classList.add('warn-input');
         passwordInput.classList.add('animation');
 
-        console.log('Compila la password per accedere!');
         setTimeout(() => {
             passwordInput.classList.remove('animation');
         }, 500)
+        
     } else {
 
         checkEmail();
@@ -83,27 +82,24 @@ async function checkEmail() {
     const querySnapshot = await getDocs(collection(db, "utenti"));
 
     querySnapshot.forEach((doc) => {
-        utente = doc
-        if (utente.id == emailInput.value) { // IF THE EMAIL IS REGISTRED
+        users = doc
+        if (users.id == emailInput.value) { // IF THE EMAIL IS REGISTRED
             emailExists += 1
+            utenteDoc = doc
         }
     });
-    console.log(emailExists)
 
     if (emailExists == 1) {
-        
-
-        checkPassword(utente)
+        checkPassword(utenteDoc)
         emailExists = 0
     } else {
-        console.log("Email o password sbagliate. 1")
+        console.log("Email sbagliato.")
         alert("Email o password sbagliate.");
     }
 };
 
 // FUNCTION CHECK IF THE PASSWORD IS CORRECT
 function checkPassword(doc) {
-    // TODO: ENCRIPTY THE PASSWORD INPUT BEFORE CHECK THE PASSWORD IN THE DATABASE
     const shaObj = new jsSHA("SHA-256", "TEXT");
 
     shaObj.update(passwordInput.value);
@@ -111,10 +107,12 @@ function checkPassword(doc) {
     if (doc.data().password == shaObj.getHash("HEX")) {
         window.location.href = 'home.html';
         alert("Login realizzato con successo!");
+        console.log("Certo:", doc.data().password);
+        console.log("Inserido:", shaObj.getHash("HEX"))
     } else {
-        passwordInput.value = "";
-        passwordInput.focus();
-        console.log("Email o password sbagliate. 2")
+        console.log("Certo:", doc.data().password);
+        console.log("Inserido:", shaObj.getHash("HEX"))
+        console.log("Password sbagliata.")
         alert("Email o password sbagliate.");
     }
 };

@@ -53,20 +53,20 @@ function checkInputs() {
         nameInput.classList.add('warn-input');
         nameInput.classList.add('animation');
 
-        console.log('Compila l`email per accedere!');
         setTimeout(() => {
             nameInput.classList.remove('animation');
         }, 500)
+
     } if (lasInput.value == '') {
         lasInput.style.border = '2px solid red';
         lasInput.style.outlineColor = 'red';
         lasInput.classList.add('warn-input');
         lasInput.classList.add('animation');
 
-        console.log('Compila l`email per accedere!');
         setTimeout(() => {
             lasInput.classList.remove('animation');
         }, 500)
+
     } if (nascInput.value == '') {
         nascInput.style.border = '2px solid red';
         nascInput.style.outlineColor = 'red';
@@ -74,30 +74,31 @@ function checkInputs() {
         nascInput.classList.add('animation');
         nascLabel.classList.add('animation');
 
-        console.log('Compila l`email per accedere!');
         setTimeout(() => {
             nascInput.classList.remove('animation');
             nascLabel.classList.remove('animation');
         }, 500)
+
     } if (emailInput.value == '') {
         emailInput.style.border = '2px solid red';
         emailInput.style.outlineColor = 'red';
         emailInput.classList.add('warn-input');
         emailInput.classList.add('animation');
 
-        console.log('Compila l`email per accedere!');
         setTimeout(() => {
             emailInput.classList.remove('animation');
         }, 500)
+
     } if (passwordInput.value == '') {
         passwordInput.style.border = '2px solid red';
         passwordInput.style.outlineColor = 'red';
         passwordInput.classList.add('warn-input');
         passwordInput.classList.add('animation');
-        console.log('Compila l`email per accedere!');
+
         setTimeout(() => {
             passwordInput.classList.remove('animation');
         }, 500)
+
     } else if (!checkInput.checked) {
         alert('Per continuare devi accettare i termini e condizioni.')
     } else {
@@ -121,12 +122,23 @@ async function checkEmail() {
         emailInput.focus();
         alert("Email già registrata.");
     } else {
+        checkPassword();
+    }
+}
+
+//FUNC VALIDATE IF PASSWORD HAS MINIMUM 6 CHARACTERS
+async function checkPassword(){
+    if(passwordInput.value.length < 6){
+        alert("La passoword deve avere nel minimo 6 caratteri");
+        passwordInput.value = "";
+        passwordInput.focus();
+        passwordInput.classList.add('animation');
+    }else{
         await addData();
         alert("Registrazione completata con successo.");
         window.location.href = "index.html";
     }
 }
-
 
 // FUNC ADD DATA IN THE DATABASE
 async function addData() {
@@ -138,6 +150,8 @@ async function addData() {
         lastname: lasInput.value,
         dateBorn: nascInput.value
     });
+
+    console.log(encripty(passwordInput.value))
 };
 
 // FUNC ENCRIPTY PASSWORD
