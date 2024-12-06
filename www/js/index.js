@@ -24,9 +24,9 @@ const db = getFirestore(app);
 const btnAccedere = document.getElementById("btn-accedere");
 const emailInput = document.getElementById('iemail');
 const passwordInput = document.getElementById('ipassword');
-const btnRegistrare = document.getElementById("btn-registrare")
-var emailExists = 0
-var utente = null
+const btnRegistrare = document.getElementById("btn-registrare");
+var emailExists = 0;
+var utente = null;
 
 
 
@@ -44,7 +44,7 @@ btnAccedere.addEventListener("click", () => {
 // REGISTER BUTTON EVENT
 btnRegistrare.addEventListener("click", function () {
     window.location.href = 'registrare.html'
-})
+});
 
 
 
@@ -77,7 +77,7 @@ function checkInputs() {
 
         checkEmail();
     }
-}
+};
 
 // FUNCTION CHECK EMAIL IS REGISTRED
 async function checkEmail() {
@@ -111,5 +111,5 @@ function checkPassword(doc) {
         console.log("Email o password sbagliate. 2")
         alert("Email o password sbagliate.");
     }
-}
+};
 
