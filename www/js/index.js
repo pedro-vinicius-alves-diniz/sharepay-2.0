@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js   ";
+import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, setDoc, getDoc } from "../../node_modules/firebase/firebase-firestore.js";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
@@ -25,10 +25,14 @@ const btnAccedere = document.getElementById("btn-accedere");
 const emailInput = document.getElementById('iemail');
 const passwordInput = document.getElementById('ipassword');
 const btnRegistrare = document.getElementById("btn-registrare")
+var emailExists = 0
+var utente = null
 
 
 
 // EVENTS
+// TODO: DO EVENT INPUTS FOCUS
+
 // EVENT WHEN LOGIN BUTTON IS CLICKED
 btnAccedere.addEventListener("click", () => {
     event.preventDefault();
@@ -78,19 +82,21 @@ function checkInputs() {
 // FUNCTION CHECK EMAIL IS REGISTRED
 async function checkEmail() {
     const querySnapshot = await getDocs(collection(db, "utenti"));
-    let emailExists
 
-    if (querySnapshot.empty) { // IF THERE IS NOT EMAIL REGISTRED
-        alert("Email o password sbagliate.");
+    querySnapshot.forEach((doc) => {
+        utente = doc
+        if (utente.id == emailInput.value) { // IF THE EMAIL IS REGISTRED
+            emailExists += 1
+        }
+    });
+    console.log(emailExists)
+
+    if (emailExists == 1) {
+        checkPassword(utente)
+        emailExists = 0
     } else {
-        querySnapshot.forEach((doc) => {
-            var utente = doc.id
-            if(utente == emailInput.value){ // IF THE EMAIL IS REGISTRED
-                checkPassword(doc);
-            }else{
-                alert("Email o password sbagliate.");
-            }
-        });
+        console.log("Email o password sbagliate. 1")
+        alert("Email o password sbagliate.");
     }
 };
 
@@ -98,11 +104,12 @@ async function checkEmail() {
 function checkPassword(doc) {
     if (doc.data().password == passwordInput.value) {
         window.location.href = 'home.html';
-        alert("Login realizzato con sucesso.")
-
+        alert("Login realizzato con successo!");
     } else {
         passwordInput.value = "";
         passwordInput.focus();
+        console.log("Email o password sbagliate. 2")
         alert("Email o password sbagliate.");
     }
 }
+
