@@ -133,9 +133,18 @@ async function addData() {
 
     await setDoc(doc(db, "utenti", emailInput.value.trim()), {
         email: emailInput.value,
-        password: passwordInput.value,
+        password: encripty(passwordInput.value),
         name: nameInput.value,
         lastname: lasInput.value,
         dateBorn: nascInput.value
     });
 };
+
+// FUNC ENCRIPTY PASSWORD
+function encripty(password){
+    const shaObj = new jsSHA("SHA-256", "TEXT");
+
+    shaObj.update(password);
+
+    return shaObj.getHash("HEX");
+}
