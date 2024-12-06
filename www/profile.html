@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!--Ícones Material Design-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+
+
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/toolbar.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- App root element -->
+    <div id="app">
+        <!-- Top Navbar -->
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="title">
+                    <img class="logo-marca" src="img/SPay.svg" alt="Logo SharePay">
+                    <div>
+                        <a id="help" href=""><span class="mdi mdi-chat-question"></span></a>
+                        <a id="notification" href=""><span class="mdi mdi-bell-outline"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="block">
+                <ul id="list-profile">
+                    <li>
+                        <a href="">
+                            <span class="mdi mdi-account-circle"></span>
+                            Modifica profilo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="mdi mdi-security"></span>
+                            Password e sicurezza
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="mdi mdi-translate"></span>
+                            Lingua
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="mdi mdi-message-alert"></span>
+                            Invia feedback
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="mdi mdi-file-sign"></span>
+                            Termini e condizioni
+                        </a>
+                    </li>
+
+                    <!--TODO: IMPLEMENTARE L'AZIONE DI USCIRE, CHE CONSISTE IN TORNARE ALLA SCHERMATA DI LOGIN -->
+                    <li id="logout">
+                        <button id="btn-exit">
+                            <span class="mdi mdi-logout"></span>
+                            Esci
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TAB BAR-->
+        <div class="toolbar toolbar-bottom">
+            <div class="toolbar-inner">
+                <a href="home.html" class="tab-link link">
+                    <i class="mdi mdi-home"></i>
+                    <span id="Home">Home</span>
+                </a>
+                <a href="carte.html" class="tab-link link">
+                    <i class="mdi mdi-credit-card-outline"></i>
+                    <span id="Cards">Carte</span>
+                </a>
+                <a href="profile.html" class="tab-link link active">
+                    <i class="mdi mdi-account"></i>
+                    <span id="profile">Profilo</span>
+                </a>
+            </div>
+
+
+
+            <script src="cordova.js"></script>
+</body>
+
+</html>

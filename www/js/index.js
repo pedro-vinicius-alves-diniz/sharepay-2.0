@@ -40,13 +40,13 @@ btnAccedere.addEventListener("click", () => {
 // REGISTER BUTTON EVENT
 btnRegistrare.addEventListener("click", function () {
     window.location.href = 'registrare.html'
-}) 
+})
 
 
 
 // FUNCTIONS
 // FUNCTION CHECK IF THE INPUTS ARE EMPTY
-function checkInputs(){
+function checkInputs() {
     if (emailInput.value == '') { // IF EMAIL INPUT IS EMPTY D0
 
         emailInput.style.border = '2px solid red';
@@ -70,18 +70,19 @@ function checkInputs(){
             passwordInput.classList.remove('animation');
         }, 500)
     } else {
-        
+
         checkEmail();
     }
 }
 
 // FUNCTION CHECK EMAIL IS REGISTRED
-async function checkEmail() { 
+async function checkEmail() {
     const querySnapshot = await getDocs(collection(db, "utenti"));
+    let emailExists
 
-    if(querySnapshot.empty){ // IF THERE IS NOT EMAIL REGISTRED
+    if (querySnapshot.empty) { // IF THERE IS NOT EMAIL REGISTRED
         alert("Email o password sbagliate.");
-    }else{
+    } else {
         querySnapshot.forEach((doc) => {
             var utente = doc.id
             if(utente == emailInput.value){ // IF THE EMAIL IS REGISTRED
@@ -89,16 +90,17 @@ async function checkEmail() {
             }else{
                 alert("Email o password sbagliate.");
             }
-        })
+        });
     }
 };
 
 // FUNCTION CHECK IF THE PASSWORD IS CORRECT
-function checkPassword(doc){
-    if(doc.data().password == passwordInput.value){ 
+function checkPassword(doc) {
+    if (doc.data().password == passwordInput.value) {
         window.location.href = 'home.html';
-        
-    }else{
+        alert("Login realizzato con sucesso.")
+
+    } else {
         passwordInput.value = "";
         passwordInput.focus();
         alert("Email o password sbagliate.");

@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    <!-- App root element -->
     <div id="app">
         <!-- Top Navbar -->
         <div class="navbar">
@@ -29,8 +30,8 @@
                 <div class="title">
                     <img class="logo-marca" src="img/SPay.svg" alt="Logo SharePay">
                     <div>
-                        <a id="help" href="#"><span class="mdi mdi-chat-question"></span></a>
-                        <a id="notification" href="#"><span class="mdi mdi-bell-outline"></span></a>
+                        <a id="help" href=""><span class="mdi mdi-chat-question"></span></a>
+                        <a id="notification" href=""><span class="mdi mdi-bell-outline"></span></a>
                     </div>
                 </div>
             </div>
@@ -39,35 +40,27 @@
         <!-- Scrollable page content -->
         <div class="page-content">
             <div class="block">
-                <a class="btn-creare">
+                <a class="btn-creare" href="#">
                     <span class="mdi mdi-plus-circle"></span>
-                    NUOVO FONDO
+                    NUOVA CARTA
                 </a>
 
-
                 <section class="container">
-                    <h1>I miei fondi</h1>
+                    <h1>Le mie carte</h1>
 
-                    <ul class="lista" id="list-fonds">
-                        <li class="item" id="fond">
+                    <ul class="lista" id="list-cards">
+                        <li class="item" id="card">
                             <a href="#">
-                                <span class="nome">McDonalds</span>
-                                <span class="creato-da">26/11/2024</span>
-                                <span class="valore-fondo">15.00</span>
+                                <span class="network">Mastercard</span>
+                                <span class="number">****<span>9827</span></span>
+                                <span class="expires">09/29</span>
                             </a>
                         </li>
-                        <li class="item" id="fond">
+                        <li class="item" id="card">
                             <a href="#">
-                                <span class="nome">Giro Milano</span>
-                                <span class="creato-da">26/11/2024</span>
-                                <span class="valore-fondo">25.00</span>
-                            </a>
-                        </li>
-                        <li class="item" id="fond">
-                            <a href="#">
-                                <span class="nome">Pizzeria</span>
-                                <span class="creato-da">26/11/2024</span>
-                                <span class="valore-fondo">33.00</span>
+                                <span class="network">Visa</span>
+                                <span class="number">****<span>2371</span></span>
+                                <span class="expires">05/31</span>
                             </a>
                         </li>
                     </ul>
@@ -79,11 +72,11 @@
     <!-- TAB BAR-->
     <div class="toolbar toolbar-bottom">
         <div class="toolbar-inner">
-            <a href="home.html" class="tab-link link active">
+            <a href="home.html" class="tab-link link">
                 <i class="mdi mdi-home"></i>
                 <span id="Home">Home</span>
             </a>
-            <a href="carte.html" class="tab-link link">
+            <a href="home.html" class="tab-link link active">
                 <i class="mdi mdi-credit-card-outline"></i>
                 <span id="Cards">Carte</span>
             </a>
@@ -91,8 +84,9 @@
                 <i class="mdi mdi-account"></i>
                 <span id="profile">Profilo</span>
             </a>
-
         </div>
+
+
 
         <script src="cordova.js"></script>
 </body>
