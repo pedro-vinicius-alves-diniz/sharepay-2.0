@@ -101,7 +101,20 @@
 
 
 
-    <script src="cordova.js"></script>
+            <script src="cordova.js"></script>
+
+            <script type="module">
+                const btnExit = document.getElementById("btn-exit");
+
+                btnExit.addEventListener("click", () => {
+
+                    if (confirm("Confermi di volere uscire dell'app?")) {
+                        window.close();
+                    } 
+                })
+
+
+            </script>
 </body>
 
 </html>
