@@ -107,11 +107,15 @@
             <script type="module">
                 const btnExit = document.getElementById("btn-exit");
 
-                btnExit.addEventListener("click", () => {
+                document.addEventListener("deviceready", () => {
 
-                    if (confirm("Confermi di volere uscire dell'app?")) {
-                        window.close();
-                    } 
+                    btnExit.addEventListener("click", () => {
+    
+                        if (confirm("Confermi di volere uscire dell'app?")) {
+                            console.log("Botão exit clicado!")
+                            navigator.app.exitApp()
+                        } 
+                    })
                 })
 
 
