@@ -99,25 +99,26 @@
                     <span id="profile">Profilo</span>
                 </a>
             </div>
+        </div>
 
 
 
-            <script src="cordova.js"></script>
+        <script src="cordova.js"></script>
 
-            <script type="module">
-                const btnExit = document.getElementById("btn-exit");
+        <script type="module">
+            const btnExit = document.getElementById("btn-exit");
 
-                document.addEventListener("deviceready", () => {
-                    btnExit.addEventListener("click", () => {
-    
-                        if (confirm("Confermi di volere uscire dell'app?")) {
-                            console.log("Botão exit clicado!")
-                            navigator.app.exitApp()
-                        } 
-                    })
+            document.addEventListener("deviceready", () => {
+                btnExit.addEventListener("click", () => {
+
+                    if (confirm("Confermi di volere uscire dell'app?")) {
+                        console.log("Botão exit clicado!")
+                        navigator.app.exitApp()
+                    }
                 })
+            })
 
-            </script>
+        </script>
 </body>
 
 </html>
