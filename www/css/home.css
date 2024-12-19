@@ -5,6 +5,13 @@
 
 body{
     background-color: #fff;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+#app{
+    z-index: 1;
 }
 
 /* NAVBAR */
@@ -172,3 +179,52 @@ body{
     cursor: pointer;
 }
 /* FIM PROFILE */
+
+
+/* PAGE NUOVO WALLET */
+#new-wallet{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    height: 100vh;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.new-wallet-content{
+    background-color: #fff;
+    width: 95%;
+    max-width: 700px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    padding: 2rem;
+}
+.new-wallet-content form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.new-wallet-content form .membri{
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+.new-wallet-content form .buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* FIMPAGE NUOVO WALLET */
