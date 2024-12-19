@@ -40,13 +40,13 @@
         <!-- Scrollable page content -->
         <div class="page-content">
             <div class="block">
-                <a class="btn-creare">
+                <a class="btn-creare" id="btn-new-wallet">
                     <span class="mdi mdi-plus-circle"></span>
-                    NUOVO FONDO
+                    NUOVO WALLET
                 </a>
 
                 <section class="container">
-                    <h1>I miei fondi</h1>
+                    <h1>I miei wallets</h1>
 
                     <ul class="lista" id="list-fonds">
                         <li class="item" id="fond">
@@ -77,21 +77,27 @@
     </div>
 
     <div id="new-wallet">
-        <div class="new-wallet-content">
-            <h4>CREARE NUOVO WALLET</h4>
-            <form>
-                <input type="text" placeholder="Inserisci il nome dello Wallet">
+        <div class="new-wallet-content" id="new-wallet-content">
+            <h4>NUOVO WALLET</h4>
+            <div id="forms-new-wallet">
+                <form id="form-codice">
+                    <label for="codice">Entrare tramite codice di invito</label>
+                    <input id="codice" type="text" placeholder="Inserisci il codice di invito">
+                </form>
+
+                <p>O</p>
+
+                <form id="form-creare">
+                    <label for="input-name-wallet">Creare un nuovo wallet</label>
+                    <input id="input-name-wallet" type="text" placeholder="Inserisci il nome dello Wallet">
+                </form>
                 
 
                 <div class="buttons">
-                    <button>Anullare</button>
-                    <button type="submit">Creare</button>
+                    <button class="btn-anullare-wallet">Anullare</button>
+                    <button class="btn-creare-wallet" type="submit">Avanti</button>
                 </div>
-
-                <a href="">
-                    <span id="link-di-invito"></span>
-                </a>
-            </form>
+            </div>
         </div>
     </div>
 
@@ -99,8 +105,8 @@
     <div class="toolbar toolbar-bottom">
         <div class="toolbar-inner">
             <a href="home.html" class="tab-link link active">
-                <i class="mdi mdi-home"></i>
-                <span id="Home">Home</span>
+                <i class="mdi mdi-wallet"></i>
+                <span id="Home">Wallets</span>
             </a>
             <a href="carte.html" class="tab-link link">
                 <i class="mdi mdi-credit-card-outline"></i>
@@ -114,6 +120,26 @@
     </div>
 
     <script src="cordova.js"></script>
+    <script>
+        const pageNewWallet = document.getElementById('new-wallet');
+        const contentNewWallet = document.getElementById('new-wallet-content')
+        const btnNewWallet = document.getElementById('btn-new-wallet');
+        const btnAnullare = document.querySelector('.btn-anullare-wallet')
+
+        btnNewWallet.addEventListener('click', () =>{
+            pageNewWallet.style.display = 'flex';
+        })
+
+        btnAnullare.addEventListener('click', () =>{
+            pageNewWallet.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+            contentNewWallet.style.animation = 'uscita .5s ease-out forwards';
+            setTimeout(() =>{
+                pageNewWallet.style.display = 'none';
+                pageNewWallet.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+                contentNewWallet.style.animation = 'entrata .4s ease-out forwards';
+            }, 500);
+        })
+    </script>
 </body>
 
 </html>

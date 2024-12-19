@@ -8,6 +8,7 @@ body{
     height: 100vh;
     width: 100%;
     position: relative;
+    overflow-y: hidden;
 }
 
 #app{
@@ -192,7 +193,7 @@ body{
     height: 100vh;
     width: 100%;
     
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -203,28 +204,94 @@ body{
     background-color: #fff;
     width: 95%;
     max-width: 700px;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+    padding: 2rem;
+    
+    border: none;
+    border-radius: 1.5rem;
+    animation: entrata .4s ease-out forwards;
+}
 
+@keyframes entrata {
+    0%{
+        transform: translateY(200%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes uscita {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(200%);
+    }
+}
+.new-wallet-content h4{
+    font-size: 2rem;
+    text-align: center;
+}
+
+#forms-new-wallet{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-
-    padding: 2rem;
-}
-.new-wallet-content form{
-    display: flex;
-    flex-direction: column;
+    
     gap: 1.5rem;
 }
-.new-wallet-content form .membri{
+#forms-new-wallet input{
+    width: 14rem;
+
+    border-radius: 1rem;
+    padding: 1rem;
+    justify-self: center;
+    align-self: center;
+}
+#forms-new-wallet label{
+    align-self: center;
+}
+#forms-new-wallet input:focus{
+    outline: 1px solid var(--blue);
+}
+
+#form-codice,
+#form-creare{
     display: flex;
     flex-direction: column;
-    gap: .6rem;
+    gap: .5rem;
 }
-.new-wallet-content form .buttons{
+
+.buttons{
+    width: 100%;
+    max-width: 25rem;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+.buttons button{
+    border: none;
+    border-radius: .5rem;
+    padding: .5rem;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+.btn-anullare-wallet{
+    background-color: var(--blue);
+}
+.btn-creare-wallet{
+    background-color: var(--verde);
+}
+
+
+
+
 /* FIMPAGE NUOVO WALLET */
