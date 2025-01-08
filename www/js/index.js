@@ -47,6 +47,7 @@ btnRegistrare.addEventListener("click", function () {
 
 
 
+
 // FUNCTIONS
 // FUNCTION CHECK IF THE INPUTS ARE EMPTY
 function checkInputs() {

@@ -40,7 +40,7 @@
         <!-- Scrollable page content -->
         <div class="page-content">
             <div class="block">
-                <a class="btn-creare">
+                <a class="btn-creare" id="btn-new-wallet">
                     <span class="mdi mdi-plus-circle"></span>
                     NUOVO WALLET
                 </a>
@@ -76,6 +76,31 @@
         </div>
     </div>
 
+    <div id="new-wallet">
+        <div class="new-wallet-content" id="new-wallet-content">
+            <h4>NUOVO WALLET</h4>
+            <div id="forms-new-wallet">
+                <form id="form-codice">
+                    <label for="codice">Entrare tramite codice di invito</label>
+                    <input id="codice" type="text" placeholder="Inserisci il codice di invito">
+                </form>
+
+                <p>O</p>
+
+                <form id="form-creare">
+                    <label for="input-name-wallet">Creare un nuovo wallet</label>
+                    <input id="input-name-wallet" type="text" placeholder="Inserisci il nome dello Wallet">
+                </form>
+                
+
+                <div class="buttons">
+                    <button class="btn-anullare-wallet">Annullare</button>
+                    <button class="btn-creare-wallet" type="submit">Avanti</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- TAB BAR-->
     <div class="toolbar toolbar-bottom">
         <div class="toolbar-inner">
@@ -95,6 +120,26 @@
     </div>
 
     <script src="cordova.js"></script>
+    <script>
+        const pageNewWallet = document.getElementById('new-wallet');
+        const contentNewWallet = document.getElementById('new-wallet-content')
+        const btnNewWallet = document.getElementById('btn-new-wallet');
+        const btnAnullare = document.querySelector('.btn-anullare-wallet')
+
+        btnNewWallet.addEventListener('click', () =>{
+            pageNewWallet.style.display = 'flex';
+        })
+
+        btnAnullare.addEventListener('click', () =>{
+            pageNewWallet.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+            contentNewWallet.style.animation = 'uscita .5s ease-out forwards';
+            setTimeout(() =>{
+                pageNewWallet.style.display = 'none';
+                pageNewWallet.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+                contentNewWallet.style.animation = 'entrata .4s ease-out forwards';
+            }, 500);
+        })
+    </script>
 </body>
 
 </html>
