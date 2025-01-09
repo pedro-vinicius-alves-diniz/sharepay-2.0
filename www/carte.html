@@ -47,18 +47,42 @@
                     NUOVA CARTA
                 </a>
 
+                <div id="new-card">
+                    <div class="new-card-content" id="new-card-content">
+                        <h4>NUOVA CARTA</h4>
+                        <div id="forms-new-card">
+
+                            <form id="form-creare">
+                                <input id="input-name-card" type="text" placeholder="Nome e Cognome">
+                                <input type="text" id="input-number-card" placeholder="Numero della carta">
+
+                                <div>
+                                    <input type="month" name="scadenza" id="iscadenza" style="width: 10rem;">
+                                    <input type="text" placeholder="CVV" style="width: 7rem;">
+                                </div>
+                            </form>
+
+
+                            <div class="buttons">
+                                <button class="btn-anullare-card">Annullare</button>
+                                <button class="btn-creare-card" type="submit">Aggiungere</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <section class="container">
                     <h1>Le mie carte</h1>
 
                     <ul class="lista" id="list-cards">
-                        <li class="item" id="card">
+                        <li class="item" id="card-1">
                             <a href="#">
                                 <span class="network">Mastercard</span>
                                 <span class="number">****<span>9827</span></span>
                                 <span class="expires">09/29</span>
                             </a>
                         </li>
-                        <li class="item" id="card">
+                        <li class="item" id="card-2">
                             <a href="#">
                                 <span class="network">Visa</span>
                                 <span class="number">****<span>2371</span></span>
@@ -66,34 +90,17 @@
                             </a>
                         </li>
                     </ul>
+
+                    <div id="page-card-clicked" style="display: none;">
+
+                    </div>
                 </section>
             </div>
         </div>
     </div>
 
-    <div id="new-card">
-        <div class="new-card-content" id="new-card-content">
-            <h4>NUOVA CARTA</h4>
-            <div id="forms-new-card">
 
-                <form id="form-creare">
-                    <input id="input-name-card" type="text" placeholder="Nome e Cognome">
-                    <input type="text" id="input-number-card" placeholder="Numero della carta">
 
-                    <div>
-                        <input type="month" name="scadenza" id="iscadenza" style="width: 10rem;">
-                        <input type="text" placeholder="CVV" style="width: 7rem;">
-                    </div>
-                </form>
-                
-
-                <div class="buttons">
-                    <button class="btn-anullare-card">Annullare</button>
-                    <button class="btn-creare-card" type="submit">Aggiungere</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- TAB BAR-->
     <div class="toolbar toolbar-bottom">
@@ -122,19 +129,28 @@
         const btnNewCard = document.getElementById('btn-new-card');
         const btnAnullare = document.querySelector('.btn-anullare-card')
 
-        btnNewCard.addEventListener('click', () =>{
+        btnNewCard.addEventListener('click', () => {
             pageNewCard.style.display = 'flex';
         })
 
-        btnAnullare.addEventListener('click', () =>{
+        btnAnullare.addEventListener('click', () => {
             pageNewCard.style.backgroundColor = 'rgba(0, 0, 0, 0)'
             contentNewCard.style.animation = 'uscita .5s ease-out forwards';
-            setTimeout(() =>{
+            setTimeout(() => {
                 pageNewCard.style.display = 'none';
                 pageNewCard.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
                 contentNewCard.style.animation = 'entrata .4s ease-out forwards';
             }, 500);
         })
+
+        const cards = document.querySelectorAll(".item")
+
+        Array.from(cards).forEach(item => {
+            item.addEventListener("click", () => {
+                console.log(item.id)
+            })
+        })
+
     </script>
 </body>
 
