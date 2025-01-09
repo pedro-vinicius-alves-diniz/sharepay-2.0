@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/toolbar.css">
+    <link rel="stylesheet" href="css/carte.css">
     <link rel="shortcut icon" href="img/SPay.svg" type="image/x-icon">
     <title>SharePay</title>
 </head>
@@ -41,7 +42,7 @@
         <!-- Scrollable page content -->
         <div class="page-content">
             <div class="block">
-                <a class="btn-creare" href="#">
+                <a class="btn-creare" href="#" id="btn-new-card">
                     <span class="mdi mdi-plus-circle"></span>
                     NUOVA CARTA
                 </a>
@@ -70,6 +71,30 @@
         </div>
     </div>
 
+    <div id="new-card">
+        <div class="new-card-content" id="new-card-content">
+            <h4>NUOVA CARTA</h4>
+            <div id="forms-new-card">
+
+                <form id="form-creare">
+                    <input id="input-name-card" type="text" placeholder="Nome e Cognome">
+                    <input type="text" id="input-number-card" placeholder="Numero della carta">
+
+                    <div>
+                        <input type="month" name="scadenza" id="iscadenza" style="width: 10rem;">
+                        <input type="text" placeholder="CVV" style="width: 7rem;">
+                    </div>
+                </form>
+                
+
+                <div class="buttons">
+                    <button class="btn-anullare-card">Annullare</button>
+                    <button class="btn-creare-card" type="submit">Aggiungere</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- TAB BAR-->
     <div class="toolbar toolbar-bottom">
         <div class="toolbar-inner">
@@ -90,6 +115,27 @@
 
 
     <script src="cordova.js"></script>
+
+    <script>
+        const pageNewCard = document.getElementById('new-card');
+        const contentNewCard = document.getElementById('new-card-content')
+        const btnNewCard = document.getElementById('btn-new-card');
+        const btnAnullare = document.querySelector('.btn-anullare-card')
+
+        btnNewCard.addEventListener('click', () =>{
+            pageNewCard.style.display = 'flex';
+        })
+
+        btnAnullare.addEventListener('click', () =>{
+            pageNewCard.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+            contentNewCard.style.animation = 'uscita .5s ease-out forwards';
+            setTimeout(() =>{
+                pageNewCard.style.display = 'none';
+                pageNewCard.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+                contentNewCard.style.animation = 'entrata .4s ease-out forwards';
+            }, 500);
+        })
+    </script>
 </body>
 
 </html>
