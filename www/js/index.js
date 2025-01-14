@@ -33,7 +33,7 @@ var utenteDoc = null;
 // EVENTS
 
 // EVENT WHEN LOGIN BUTTON IS CLICKED
-btnAccedere.addEventListener("click", () => {
+btnAccedere.addEventListener("click", (event) => {
     event.preventDefault();
 
     checkInputs();
